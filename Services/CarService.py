@@ -6,7 +6,7 @@ class car_service:
 
     def listCars():
         sql = """SELECT * FROM t_car 
-        INNER JOIN t_user ON t_car.CAR_US_ID = T_USER.US_ID
+        INNER JOIN t_user ON t_car.CAR_US_ID = t_user.US_ID
         """
         # la siguiente linea es para ejecutar la consulta sql
         c   = current_app.mysql.connection.cursor() 
