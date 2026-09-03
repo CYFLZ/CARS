@@ -13,11 +13,20 @@ app.config.from_object(Config)
 mysql = MySQL(app)
 app.mysql = mysql
 
+# try:
+#     with mysql.connection.cursor() as cursor:
+#         cursor.execute("SELECT 1")
+#         result = cursor.fetchone()
+#         print("CONEXIÓN MYSQL OK:", result)
+# except Exception as e:
+#     print("ERROR MYSQL:", repr(e))
+
 try:
-    with mysql.connection.cursor() as cursor:
-        cursor.execute("SELECT 1")
-        result = cursor.fetchone()
-        print("CONEXIÓN MYSQL OK:", result)
+    with app.app_context():
+        with mysql.connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+            result = cursor.fetchone()
+            print("CONEXIÓN MYSQL OK:", result)
 except Exception as e:
     print("ERROR MYSQL:", repr(e))
 
