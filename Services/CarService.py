@@ -5,8 +5,8 @@ from Models.user import User
 class car_service:
 
     def listCars():
-        sql = """SELECT * FROM T_CAR 
-        INNER JOIN T_USER ON T_CAR.CAR_US_ID = T_USER.US_ID
+        sql = """SELECT * FROM t_car 
+        INNER JOIN T_USER ON t_car.CAR_US_ID = T_USER.US_ID
         """
         # la siguiente linea es para ejecutar la consulta sql
         c   = current_app.mysql.connection.cursor() 
