@@ -4,7 +4,7 @@ from Models.user import User
 class user_service:
 
     def listUser():
-        sql = "SELECT * FROM T_USER"
+        sql = "SELECT * FROM t_user"
         # la siguiente linea es para ejecutar la consulta sql
         c   = current_app.mysql.connection.cursor() 
         c.execute(sql)
@@ -19,7 +19,7 @@ class user_service:
     def addUser(nombre, apellido, tipo_doc, documento, fecha_nac):
         c   = current_app.mysql.connection.cursor() 
         sql = f"""
-                INSERT INTO T_USER (US_FIRST_NAME, US_LAST_NAME, US_TYPE_DOC, US_DOCUMENT, US_DATE_BIRTH)
+                INSERT INTO t_user (US_FIRST_NAME, US_LAST_NAME, US_TYPE_DOC, US_DOCUMENT, US_DATE_BIRTH)
                 VALUES (%s, %s, %s, %s, %s)
             """
         c.execute(sql,(nombre, apellido, tipo_doc, documento, fecha_nac))
