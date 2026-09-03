@@ -11,6 +11,6 @@ class Config:
     MYSQL_DB        = os.getenv("MYSQL_DATABASE")
     MYSQL_PORT      = int(os.getenv("MYSQL_PORT", 3306))  # Puerto por defecto de MySQL es 3306
     MYSQL_SSL = {
-        "ca": "certs/ca.pem"
+        "ca": "/etc/secrets/aiven-ca.pem"
     }
 
